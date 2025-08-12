@@ -1,0 +1,43 @@
+.settings__page {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+.char__name__settings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.char__name__settings output {
+  margin-right: 25px;
+  text-transform: uppercase;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 400;
+  color: var(--color-dark-red);
+}
+.char__name__settings output.hiden {
+  display: none;
+}
+.char__name__fieldset__settings {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.char__name__fieldset__settings input.hiden {
+  display: none;
+}
+.char__name__fieldset__settings input {
+  height: 30px;
+  width: 200px;
+  font-size: 16px;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 400;
+  color: var(--color-dark-red);
+  text-align: center;
+  text-transform: uppercase;
+}
+

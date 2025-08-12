@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Not A Fight Club</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home-page.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@
 <body>
   <header class="header container">
     <div class="header__content">
-      <h2>Registration page</h2>
+      <h2>Home page</h2>
       <nav>
         <ul class="nav__list">
           <li><a href="/home-page.html" class="nav__item nav__home" title="Home page"></a></li>
@@ -27,19 +28,6 @@
   <main class="main container">
     <div class="main__content create__char__page">
       <h1>Welcome to the Not Fight Club!</h1>
-      <p class="create__char__text">Please, create your character.</p>
-      <form action="/home-page.html" class="char__name__form">
-        <fieldset class="char__name__fieldset">
-          <label for="character__name">Character name</label>
-          <input type="text" id="character__name" name="Character name"
-            required
-            minlength="3"
-            maxlength="15"
-            pattern="^[a-zA-Zа-яА-ЯЁё ]{3,15}$"
-            title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only">
-        </fieldset>
-        <button type="submit" aria-label="Create character" class="create__char__btn">Create</button>
-      </form>
     </div>
   </main>
 
