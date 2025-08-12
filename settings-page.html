@@ -30,14 +30,14 @@
       <form action="" class="char__name__settings">
         <fieldset class="char__name__fieldset__settings">
           <label for="character__name">Character Name:</label>
-          <input type="text" id="character__name" class="hiden" name="Character name"
+          <input type="text" id="character__name__edit" class="hiden" name="Character name"
             required
             minlength="3"
             maxlength="15"
             pattern="^[a-zA-Zа-яА-ЯЁё ]{3,15}$"
             title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only">
         </fieldset>
-        <output id="character__name__output">name</output>
+        <output for="character__name" class="char__name__output" id="character__name__output">name</output>
         <button type="submit" aria-label="Edit character name" class="edit__char__btn">Edit</button>
       </form>
     </div>
