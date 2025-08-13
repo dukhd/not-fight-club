@@ -1,0 +1,208 @@
+/* general styles + register page styles */
+
+/* 
+  font-family: "Oxanium", sans-serif;
+  font-weight: 200;
+
+  font-family: "Oxanium", sans-serif;
+  font-weight: 400;
+
+  font-family: "Oxanium", sans-serif;
+  font-weight: 600;
+
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  /* outline: 1px solid rgba(255, 0, 0, 0.2); */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  color: var(--color-dark);
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-dark: #000000;
+  --color-dark-red: #770000;
+  --color-wins: #1a8662;
+  --color-loses: #2b0204;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+h2 {
+  font-weight: 400;
+  font-size: 26px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.line {
+  height: 2px;
+  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-color: var(--color-dark);
+}
+.create__char__btn {
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  transition: 0.6s;
+}
+.create__char__btn:hover {
+  background-color: var(--color-dark-red);
+  box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+}
+
+/* header start ------------------------------------------- */
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0;
+}
+
+.nav__home {
+  display: inline-block;
+  width: 23px;
+  height: 20px;
+  background-image: url(../assets/svg/home.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav__character {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/svg/character.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav__settings {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/svg/settings.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* header end ------------------------------------------- */
+
+/* main start ------------------------------------------- */
+.main__content {
+  padding: 25px 0;
+}
+.create__char__page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin: 0;
+  padding-top: 60px;
+  padding-bottom: 10px;
+}
+.create__char__text {
+  font-weight: 200;
+  font-size: 20px;
+  margin: 0;
+  padding: 0 0 40px 0;
+}
+.char__name__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.char__name__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  text-transform: uppercase;
+}
+
+.char__name__fieldset input {
+  height: 40px;
+  width: 300px;
+  font-size: 16px;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 400;
+  color: var(--color-dark-red);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* main end ------------------------------------------- */
+
+/* footer start ------------------------------------------- */
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+.footer__content {
+  width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.year__social__links {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.github-link {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(../assets/png/social-media/github.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.rs-school-logo {
+  height: 35px;
+  width: 95px;
+  background-image: url(../assets/svg/rs-school-logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

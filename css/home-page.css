@@ -1,0 +1,38 @@
+.home__page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+output {
+  padding-top: 80px;
+  text-transform: uppercase;
+  font-family: "Oxanium", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-dark-red);
+}
+
+.home__page h2 {
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 20px 0 60px;
+}
+
+.start__fight__btn {
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 15px 45px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  transition: 0.6s;
+  text-decoration: none;
+}
+.start__fight__btn:hover {
+  background-color: var(--color-dark-red);
+  box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not A Fight Club</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/settings-page.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header container">
+    <div class="header__content">
+      <h2>Settings page</h2>
+      <nav>
+        <ul class="nav__list">
+          <li><a href="/home-page.html" class="nav__item nav__home" title="Home page"></a></li>
+          <li><a href="/character-page.html" class="nav__item nav__character" title="Character page"></a></li>
+          <li><a href="/settings-page.html" class="nav__item nav__settings" title="Settings page"></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="line"></div>
+  </header>
+
+  <main class="main container">
+    <div class="main__content settings__page">
+      <form action="" class="char__name__settings">
+        <fieldset class="char__name__fieldset__settings">
+          <label for="character__name">Character Name:</label>
+          <input type="text" id="character__name__edit" class="hiden" name="Character name"
+            required
+            minlength="3"
+            maxlength="15"
+            pattern="^[a-zA-Zа-яА-ЯЁё ]{3,15}$"
+            title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only">
+        </fieldset>
+        <output for="character__name" class="char__name__output" id="character__name__output">name</output>
+        <button type="submit" aria-label="Edit character name" class="edit__char__btn">Edit</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer container">
+    <div class="line"></div>
+    <div class="footer__content">
+      <div class="year__social__links">
+        <span>&copy; 2025</span>
+        <a href="https://github.com/dukhd" class="github-link" title="GitHub link"></a>
+      </div>
+      <a href="https://rs.school/courses/javascript-ru" class="rs-school-logo" title="RS School link"></a> 
+    </div>
+    
+  </footer>
+</body>
+</html>
