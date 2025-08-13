@@ -26,9 +26,61 @@
   </header>
 
   <main class="main container">
-    <div class="main__content create__char__page">
-      <h1>Welcome to the Not Fight Club!</h1>
+    <div class="main__content char__page">
+      <div class="char__image__wrapper">
+        <!-- <div class="char__image">
+          <img src="assets/jpg/characters/1.jpg" 
+          id="choosen__char__img" 
+          alt="Caracter 1" 
+          width="250" 
+          height="375">
+        </div> -->
+        <button type="submit" aria-label="Change character image" class="change__char__img__btn">
+          <img src="assets/jpg/characters/1.jpg" 
+          id="choosen__char__img" 
+          alt="Caracter 1" 
+          width="250" 
+          height="375">
+          <div class="char__img__overlay">
+            <img src="assets/svg/pen.svg" alt="Change Icon" width="30" height="30">
+          </div> 
+        </button>
+      </div>
+
+      <div class="char__info">
+        <output for="character__name" class="char__name__output" id="character__name__output">
+          name
+        </output>
+        <div class="wins__count" id="wins">Wins: 0</div>
+        <div class="loses__count" id="loses">Loses: 0</div>
+        <output></output>
+      </div>
+      <div class="overlay" id="overlay"></div>
+      <div class="char__image__changing__window">
+          <button type="submit" aria-label="Close button" class="char__img__close__btn"></button>
+          <div class="char__img__container">
+            <form class="char__img__form">
+              <label class="char__img__type__wrapper">
+                <input type="radio" checked="checked" name="Caracter" id="Caracter__1" value="1">
+                <img src="assets/jpg/characters/1.jpg" alt="Caracter 1" width="147" height="220">
+              </label>
+              <label class="char__img__type__wrapper">
+                <input type="radio" name="Caracter" id="Caracter__2" value="2">
+                <img src="assets/jpg/characters/2.jpg" alt="Caracter 2" width="147" height="220">
+              </label>
+              <label class="char__img__type__wrapper">
+                <input type="radio" name="Caracter" id="Caracter__3" value="3">
+                <img src="assets/jpg/characters/3.jpg" alt="Caracter 3" width="147" height="220">
+              </label>
+              <label class="char__img__type__wrapper">
+                <input type="radio" name="Caracter" id="Caracter__4" value="4">
+                <img src="assets/jpg/characters/4.jpg" alt="Caracter 4" width="147" height="220">
+              </label>
+            </form>
+          </div>
+      </div>
     </div>
+
   </main>
 
   <footer class="footer container">

@@ -8,7 +8,19 @@
   align-items: center;
   gap: 10px;
 }
-
+.edit__char__btn {
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  transition: 0.6s;
+}
+.edit__char__btn:hover {
+  background-color: var(--color-dark-red);
+  box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+}
 .char__name__settings output {
   margin-right: 25px;
   text-transform: uppercase;
