@@ -139,8 +139,30 @@ button.char__img__close__btn::after {
   opacity: 1;
   pointer-events: auto;
 }
-
 .char__img__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.select__char {
+  width: 150px;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.select__char:hover {
+  background-color: var(--color-dark-red);
+  box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+}
+
+.char__img__form__wrapper {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -149,10 +171,10 @@ button.char__img__close__btn::after {
 .char__img__type__wrapper {
   cursor: pointer;
 }
-.char__img__form input[type="radio"]:checked + img {
+.char__img__form__wrapper input[type="radio"]:checked + img {
   border: 5px solid var(--color-dark-red);
 }
-.char__img__form input[type="radio"] {
+.char__img__form__wrapper input[type="radio"] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
