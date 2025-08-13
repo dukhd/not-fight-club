@@ -27,6 +27,9 @@ body {
   font-weight: 200;
   font-size: 18px;
   color: var(--color-dark);
+  max-width: 1440px;
+  margin: 0 auto;
+
 }
 
 :root {
@@ -38,7 +41,7 @@ body {
 }
 
 .container {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 h2 {
@@ -75,7 +78,9 @@ h2 {
   align-items: center;
   padding: 25px 0;
 }
-
+.header__line {
+  width: 100vw;
+}
 .nav__list {
   list-style: none;
   display: flex;
@@ -118,7 +123,7 @@ h2 {
 
 /* main start ------------------------------------------- */
 .main__content {
-  padding: 25px 0;
+  padding: 5vh 0;
 }
 .create__char__page {
   display: flex;
@@ -173,10 +178,10 @@ h1 {
 .footer {
   position: fixed;
   bottom: 0px;
-  width: 100%;
+  width: 100vw;
 }
 .footer__content {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

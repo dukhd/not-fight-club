@@ -1,6 +1,6 @@
-.header__content {
+/* .header__content {
   padding: 15px 0 10px;
-}
+} */
 
 
 .battle__page {
@@ -94,7 +94,8 @@ legend {
 .logs__wrapper {
   margin-top: 10px;
   border: 2px solid var(--color-dark);
-  height: 135px;
+  max-height: 200px;
+  height: 20vh;
   overflow-y: scroll;
   padding: 5px 10px;
 }
@@ -116,7 +117,7 @@ legend {
   font-size: 16px;
 }
 
-
+/* 
 .footer__content {
   padding: 7px 0 5px;
 }
@@ -138,4 +139,4 @@ footer span {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
