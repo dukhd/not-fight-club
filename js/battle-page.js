@@ -9,3 +9,9 @@ if (chosenCharImg) {
     chosenCharImg.alt = savedAlt;
   }
 }
+
+const charNameOutput = document.querySelector('.char__name__output');
+const characterName = localStorage.getItem('characterName');
+if (characterName) {
+  charNameOutput.textContent = characterName;
+}

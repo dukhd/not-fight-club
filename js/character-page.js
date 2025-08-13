@@ -1,3 +1,9 @@
+const charNameOutput = document.querySelector('.char__name__output');
+const characterName = localStorage.getItem('characterName');
+if (characterName) {
+  charNameOutput.textContent = characterName;
+}
+
 const changeCharImgBtn = document.querySelector('.change__char__img__btn');
 const changeCharWindow = document.querySelector('.char__image__changing__window');
 const changeCharCloseBtn = document.querySelector('.char__img__close__btn');

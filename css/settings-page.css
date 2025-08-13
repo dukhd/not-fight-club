@@ -21,6 +21,13 @@
   background-color: var(--color-dark-red);
   box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
 }
+.edit__char__btn:disabled {
+  background-color: #b9b9b99a;
+  color: #16010171;
+}
+.invalid__message {
+  font-size: 10px;
+}
 .char__name__settings output {
   margin-right: 25px;
   text-transform: uppercase;

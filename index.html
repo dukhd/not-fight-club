@@ -30,12 +30,13 @@
       <form action="/home-page.html" class="char__name__form">
         <fieldset class="char__name__fieldset">
           <label for="character__name">Character name</label>
-          <input type="text" id="character__name" name="Character name"
+          <input type="text" id="character__name" name="Character name" class="char__name"
             required
             minlength="3"
             maxlength="15"
             pattern="^[a-zA-Zа-яА-ЯЁё ]{3,15}$"
             title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only">
+            <div class="invalid__message"></div>
         </fieldset>
         <button type="submit" aria-label="Create character" class="create__char__btn">Create</button>
       </form>
@@ -53,5 +54,6 @@
     </div>
     
   </footer>
+  <script src="js/registration-page.js"></script>
 </body>
 </html>

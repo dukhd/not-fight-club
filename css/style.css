@@ -59,16 +59,23 @@ h2 {
 }
 .create__char__btn {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
-  padding: 10px 25px;
+  text-decoration: none;
+  margin: 0;
+  padding: 10px 30px;
   background-color: var(--color-dark);
   color: var(--color-white);
   transition: 0.6s;
+
 }
 .create__char__btn:hover {
   background-color: var(--color-dark-red);
   box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+}
+.create__char__btn:disabled {
+  background-color: #b9b9b99a;
+  color: #16010171;
 }
 
 /* header start ------------------------------------------- */
@@ -172,7 +179,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.char__name__fieldset input {
+.char__name {
   height: 40px;
   width: 300px;
   font-size: 16px;
@@ -183,6 +190,18 @@ h1 {
   text-transform: uppercase;
 }
 
+.char__name.invalid {
+  border: 3px solid var(--color-dark-red);
+}
+.invalid__message {
+  padding-top: 5px;
+  font-size: 16px;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 400;
+  color: var(--color-dark-red);
+  text-align: center;
+  text-transform: uppercase;
+}
 /* main end ------------------------------------------- */
 
 /* footer start ------------------------------------------- */
