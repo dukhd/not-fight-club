@@ -23,6 +23,6 @@ charNameFormFirst.addEventListener('submit', (e) => {
   e.preventDefault();
   if (inputCharName.checkValidity()) {
     localStorage.setItem('characterName', inputCharName.value);
-    window.location.href = '/home-page.html';
+    window.location.href = 'home-page.html';
   }
 });
