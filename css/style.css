@@ -27,6 +27,9 @@ body {
   font-weight: 200;
   font-size: 18px;
   color: var(--color-dark);
+  max-width: 1440px;
+  margin: 0 auto;
+
 }
 
 :root {
@@ -38,7 +41,7 @@ body {
 }
 
 .container {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 h2 {
@@ -56,16 +59,23 @@ h2 {
 }
 .create__char__btn {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
-  padding: 10px 25px;
+  text-decoration: none;
+  margin: 0;
+  padding: 10px 30px;
   background-color: var(--color-dark);
   color: var(--color-white);
   transition: 0.6s;
+
 }
 .create__char__btn:hover {
   background-color: var(--color-dark-red);
   box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+}
+.create__char__btn:disabled {
+  background-color: #b9b9b99a;
+  color: #16010171;
 }
 
 /* header start ------------------------------------------- */
@@ -75,7 +85,9 @@ h2 {
   align-items: center;
   padding: 25px 0;
 }
-
+.header__line {
+  width: 100vw;
+}
 .nav__list {
   list-style: none;
   display: flex;
@@ -83,6 +95,17 @@ h2 {
   margin: 0;
   padding: 0;
   padding-inline-start: 0;
+}
+
+.nav__battle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/svg/battle.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 15px;
 }
 
 .nav__home {
@@ -118,7 +141,7 @@ h2 {
 
 /* main start ------------------------------------------- */
 .main__content {
-  padding: 25px 0;
+  padding: 5vh 0;
 }
 .create__char__page {
   display: flex;
@@ -156,7 +179,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.char__name__fieldset input {
+.char__name {
   height: 40px;
   width: 300px;
   font-size: 16px;
@@ -167,16 +190,28 @@ h1 {
   text-transform: uppercase;
 }
 
+.char__name.invalid {
+  border: 3px solid var(--color-dark-red);
+}
+.invalid__message {
+  padding-top: 5px;
+  font-size: 16px;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 400;
+  color: var(--color-dark-red);
+  text-align: center;
+  text-transform: uppercase;
+}
 /* main end ------------------------------------------- */
 
 /* footer start ------------------------------------------- */
 .footer {
   position: fixed;
   bottom: 0px;
-  width: 100%;
+  width: 100vw;
 }
 .footer__content {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
