@@ -16,6 +16,7 @@
       <h2>Home page</h2>
       <nav>
         <ul class="nav__list">
+          <li><a href="/battle-page.html" class="nav__item nav__battle" title="Battle page"></a></li>
           <li><a href="/home-page.html" class="nav__item nav__home" title="Home page"></a></li>
           <li><a href="/character-page.html" class="nav__item nav__character" title="Character page"></a></li>
           <li><a href="/settings-page.html" class="nav__item nav__settings" title="Settings page"></a></li>
@@ -28,7 +29,10 @@
     <div class="main__content home__page">
       <output for="character__name" class="char__name__output" id="character__name__output">name</output>
       <h2>Welcome to the Not Fight Club!</h2>
-      <a href="/battle-page.html" class="start__fight__btn">Start fight!</a>
+      <div class="start__fight__btn__wrapper">
+        <a href="/battle-page.html" class="start__fight__btn">Start fight!</a>
+        <div class="blood"></div>
+      </div>
     </div>
   </main>
 
@@ -39,9 +43,9 @@
         <span>&copy; 2025</span>
         <a href="https://github.com/dukhd" class="github-link" title="GitHub link"></a>
       </div>
-      <a href="https://rs.school/courses/javascript-ru" class="rs-school-logo" title="RS School link"></a> 
+      <a href="https://rs.school/courses/javascript-ru" class="rs-school-logo" title="RS School link"></a>
     </div>
-    
   </footer>
+  <script src="js/home-page.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
   align-items: center;
 }
 
+
 output {
   padding-top: 80px;
   text-transform: uppercase;
@@ -21,7 +22,16 @@ output {
   padding: 20px 0 60px;
 }
 
+.start__fight__btn__wrapper {
+  position: relative;
+  width: 200px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+
 .start__fight__btn {
+  position: absolute;
   font-weight: 400;
   font-size: 16px;
   text-transform: uppercase;
@@ -30,9 +40,67 @@ output {
   color: var(--color-white);
   transition: 0.6s;
   text-decoration: none;
+  z-index: 1;
 }
 .start__fight__btn:hover {
   background-color: var(--color-dark-red);
   box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
 
+}
+
+
+.start__fight__btn:hover + .blood {
+  position: absolute;
+  right: 5px;
+  top: 18px;
+  z-index: 0;
+  width: 31px;
+  height: 45px;
+  background-image: url(../assets/svg/blood.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: bloodMooving 1.5s infinite linear;
+}
+
+@keyframes bloodMooving {
+  0% {
+    top: 18px;
+  }
+  100% {
+    top: 480px;
+  }
+}
+/* .main {
+  background-image: url(../assets/svg/Group.svg);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+
+}
+.footer > * {
+  position: relative;
+  z-index: 1;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(../assets/svg/puddle-blood.svg);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 0;
+}
+
+.footer.active__fight__btn::before {
+  opacity: 1;
 }

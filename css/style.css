@@ -90,6 +90,17 @@ h2 {
   padding-inline-start: 0;
 }
 
+.nav__battle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/svg/battle.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 15px;
+}
+
 .nav__home {
   display: inline-block;
   width: 23px;
