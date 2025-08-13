@@ -26,8 +26,101 @@
   </header>
 
   <main class="main container">
-    <div class="main__content create__char__page">
-      <h1>Welcome to the Not Fight Club!</h1>
+    <div class="main__content battle__page">
+
+      <div class="battle__wrapper">
+        <div class="character__side">
+          <img src="assets/jpg/characters/1.jpg" 
+          id="choosen__char__img" 
+          alt="Caracter 1" 
+          width="250" 
+          height="375">
+          <div class="character__life life__line">
+            <span>150 / 150</span>
+          </div>
+        </div>
+        <div class="battle__side">
+          <p>Please pick 1 Attack zone and 2 Defence zones</p>
+          <form action="" class="battle__actions__form">
+            <div class="battle__actions__wrapper">
+              <div class="attack__zones">
+                <fieldset class="attack__fieldset">
+                  <legend>Attack Zone</legend>
+                  <div class="attack__wrapper">
+                    <label for="attack__head">Head</label>
+                    <input type="radio" name="attack" id="attack__head" value="1">
+                  </div>
+                  <div class="attack__wrapper">
+                    <label for="attack__neck">Neck</label>
+                    <input type="radio" name="attack" id="attack__neck" value="2">
+                  </div>
+                  <div class="attack__wrapper">
+                    <label for="attack__body">Body</label>
+                    <input type="radio" name="attack" id="attack__body" value="3">
+                  </div>
+                  <div class="attack__wrapper">
+                    <label for="attack__belly">Belly</label>
+                    <input type="radio" name="attack" id="attack__belly" value="4">
+                  </div>
+                  <div class="attack__wrapper">
+                    <label for="attack__legs">Legs</label>
+                    <input type="radio" name="attack" id="attack__legs" value="5">
+                  </div>
+                </fieldset>
+              </div>
+              <div class="battle__line"></div>
+              <div class="defence__zones">
+                <fieldset class="defence__fieldset">
+                  <legend>Defence Zone</legend>
+                  <div class="defence__wrapper">
+                    <input type="radio" name="defence" id="defence__head" value="1">
+                    <label for="defence__head">Head</label>
+                  </div>
+                  <div class="defence__wrapper">
+                    <input type="radio" name="defence" id="defence__neck" value="2">
+                    <label for="defence__neck">Neck</label>
+                  </div>
+                  <div class="defence__wrapper">
+                    <input type="radio" name="defence" id="defence__body" value="3">
+                    <label for="defence__body">Body</label>
+                  </div>
+                  <div class="defence__wrapper">
+                    <input type="radio" name="defence" id="defence__belly" value="4">
+                    <label for="defence__belly">Belly</label>
+                  </div>
+                  <div class="defence__wrapper">
+                    <input type="radio" name="defence" id="defence__legs" value="5">
+                    <label for="defence__legs">Legs</label>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <button class="attack__btn">Attack!</button>
+          </form>
+        </div>
+        <div class="enemy__side">
+          <img src="assets/jpg/characters/1.jpg" 
+          id="random__enemy__img" 
+          alt="Enemy 1" 
+          width="250" 
+          height="375">
+          <div class="enemy__life life__line">
+            <span>150 / 150</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="logs__wrapper">
+        <p>Log 1</p>
+        <p>Log 2</p>
+        <p>Log 3</p>
+        <p>Log 4</p>
+        <p>Log 5</p>
+        <p>Log 6</p>
+        <p>Log 7</p>
+        <p>Log 8</p>
+      </div>
+
     </div>
   </main>
 
