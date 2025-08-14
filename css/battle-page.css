@@ -138,7 +138,10 @@ legend {
   background-color: var(--color-dark-red);
   box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
 }
-
+.attack__btn:disabled {
+  background-color: #b9b9b99a;
+  color: #16010171;
+}
 
 .logs__wrapper {
   margin-top: 10px;
