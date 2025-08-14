@@ -2,6 +2,33 @@
   padding: 15px 0 10px;
 } */
 
+input[type="checkbox"],
+input[type="radio"] {
+  position: relative;
+  appearance: none;
+  background: #fff;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  margin: 0;
+}
+
+input[type="checkbox"]:checked::after,
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #770000;
+  border: 1px solid #770000; 
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
 
 .battle__page {
   display: flex;
