@@ -82,6 +82,6 @@ cancelDeleteCharBtn.addEventListener('click', () => {
 deleteCharBtn.addEventListener('click', () => {
   closeDeleteCharWindow();
   localStorage.clear();
-  window.location.href = '/index.html';
-  // window.location.href = '/not-fight-club/index.html';
+  // window.location.href = '/index.html';
+  window.location.href = '/not-fight-club/index.html';
 });

@@ -49,13 +49,15 @@ input[type="radio"]:checked::after {
   position: relative;
   width: 350px;
   height: 307px;
+  display: flex;
+  justify-content: center;
 }
 .char__img__wrapper output {
   padding-top: 0;
   position: absolute;
   z-index: 1;
   bottom: 21px;
-  left: 170px;
+  left: 135px;
 }
 .char__img__frame {
   position: absolute;
