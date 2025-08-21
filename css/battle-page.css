@@ -69,6 +69,26 @@ input[type="radio"]:checked::after {
   top: 22px;
   left: 82px;
 }
+.char__health__wrapper {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+}
+.char__health__img {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+}
+.char__health__wrapper span{
+  position: absolute;
+  z-index: 3;
+  right: 12px;
+  top: 40px;
+  font-size: 20px;
+  font-weight: 800;
+}
 
 .enemy__img__wrapper {
   position: relative;
@@ -96,6 +116,28 @@ input[type="radio"]:checked::after {
   top: 22px;
   left: 82px;
 }
+.enemy__health__wrapper {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 0;
+}
+.enemy__health__img {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 0;
+}
+.enemy__health__wrapper span{
+  position: absolute;
+  z-index: 3;
+  left: 34px;
+  top: 40px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
 
 .battle__side {
   display: flex;

@@ -65,6 +65,32 @@ function generateEnemyMove() {
 const attackRadios = document.querySelectorAll('input[name="attack"]');
 const defenceCheckboxes = document.querySelectorAll('input[name="defence"]');
 const attackBtn = document.querySelector('.attack__btn');
+const charHealthEl = document.querySelector(".char__health");
+const enemyHealthEl = document.querySelector(".enemy__health");
+const charHealthImg = document.querySelector('.char__health__img');
+const enemyHealthImg = document.querySelector('.enemy__health__img');
+let charHealth = 140;
+let enemyHealth = 140;
+
+const healthImages = [
+  { health: 140, src: "assets/png/health/7.png" },
+  { health: 120, src: "assets/png/health/6.png" },
+  { health: 100, src: "assets/png/health/5.png" },
+  { health: 80, src: "assets/png/health/4.png" },
+  { health: 60, src: "assets/png/health/3.png" },
+  { health: 40, src: "assets/png/health/2.png" },
+  { health: 20, src: "assets/png/health/1.png" },
+  { health: 0, src: "assets/png/health/0.png" }
+];
+
+function getHealthImage(currentHealth) {
+  for (let i = 0; i < healthImages.length; i++) {
+    if (currentHealth >= healthImages[i].health - 20) {
+      return healthImages[i].src;
+    }
+  }
+  return healthImages[0].src;
+}
 
 attackBtn.disabled = true;
 
@@ -84,9 +110,12 @@ defenceCheckboxes.forEach(d => d.addEventListener('change', makeAttack));
 
 attackBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  generateEnemyMove()
+  generateEnemyMove();
   attackResult();
   defenceResult();
+  checkFightEnd();
+  charHealthImg.src = getHealthImage(charHealth);
+  enemyHealthImg.src = getHealthImage(enemyHealth);
 });
 
 const logsBox = document.querySelector('.logs__wrapper');
@@ -95,9 +124,12 @@ function attackResult() {
   const charAttackSelected = [...attackRadios].find(a => a.checked)?.value;
   const damageAmountToEnemy = 10;
   if (enemyDefenceZones.includes(charAttackSelected)) {
-    logsBox.innerHTML += `<strong>${characterName}</strong> attcked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> but <strong>${enemyName.name}</strong> was able to protect his <strong>${charAttackSelected}</strong><br>`;
+    logsBox.innerHTML += `<strong>${characterName}</strong> attacked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> but <strong>${enemyName.name}</strong> was able to protect his <strong>${charAttackSelected}</strong><br>`;
   } else {
-    logsBox.innerHTML += `<strong>${characterName}</strong> attcked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> and deal <strong>${damageAmountToEnemy}</strong> damage<br>`;
+    logsBox.innerHTML += `<strong>${characterName}</strong> attacked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> and deal <strong>${damageAmountToEnemy}</strong> damage<br>`;
+    enemyHealth -= damageAmountToEnemy;
+    enemyHealthEl.innerHTML = `${enemyHealth}/140`;
+    localStorage.setItem("enemyHealth", enemyHealth);
   }
 };
 
@@ -106,11 +138,14 @@ function defenceResult() {
     .filter(d => d.checked)
     .map(d => d.value);
 
-  const damageAmountToChar = 8;
+  const damageAmountToChar = 10;
   if (charAllDefenceSelected.includes(enemyAttackZone)) {
-    logsBox.innerHTML += `<strong>${enemyName.name}</strong> attcked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> but <strong>${characterName}</strong> was able to protect his <strong>${enemyAttackZone}</strong><br>`;
+    logsBox.innerHTML += `<strong>${enemyName.name}</strong> attacked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> but <strong>${characterName}</strong> was able to protect his <strong>${enemyAttackZone}</strong><br>`;
   } else {
-    logsBox.innerHTML += `<strong>${enemyName.name}</strong> attcked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> and deal <strong>${damageAmountToChar}</strong> damage<br>`;
+    logsBox.innerHTML += `<strong>${enemyName.name}</strong> attacked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> and deal <strong>${damageAmountToChar}</strong> damage<br>`;
+    charHealth -= damageAmountToChar;
+    charHealthEl.innerHTML = `${charHealth}/140`;
+    localStorage.setItem("charHealth", charHealth);
   }
 };
 
@@ -132,8 +167,39 @@ const closefightResultWindow = () => {
 }
 closeBtn.addEventListener('click', () => {
   closefightResultWindow();
+  resetFight();
 });
 fightResultWindowOverlay.addEventListener('click', () => {
   closefightResultWindow();
+  resetFight();
 });
 
+// check fight result
+function checkFightEnd() {
+  if (charHealth <= 0 && enemyHealth <= 0) {
+    openfightResultWindow();
+    drawText.classList.add('active');
+  } else if (charHealth <= 0) {
+    openfightResultWindow();
+    looseText.classList.add('active');
+  } else if (enemyHealth <= 0) {
+    openfightResultWindow();
+    winText.classList.add('active');
+  } else {
+    return;
+  }
+  localStorage.removeItem("charHealth");
+  localStorage.removeItem("enemyHealth");
+}
+
+function resetFight() {
+  charHealth = 140;
+  enemyHealth = 140;
+  charHealthEl.innerHTML = `${charHealth}/140`;
+  enemyHealthEl.innerHTML = `${enemyHealth}/140`;
+  logsBox.innerHTML = '';
+  charHealthImg.src = getHealthImage(charHealth);
+  enemyHealthImg.src = getHealthImage(enemyHealth);
+  [...attackRadios, ...defenceCheckboxes].forEach(i => i.checked = false);
+  attackBtn.disabled = true;
+}
