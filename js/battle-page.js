@@ -96,10 +96,8 @@ function attackResult() {
   const damageAmountToEnemy = 10;
   if (enemyDefenceZones.includes(charAttackSelected)) {
     logsBox.innerHTML += `<strong>${characterName}</strong> attcked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> but <strong>${enemyName.name}</strong> was able to protect his <strong>${charAttackSelected}</strong><br>`;
-    console.log('1');
   } else {
     logsBox.innerHTML += `<strong>${characterName}</strong> attcked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> and deal <strong>${damageAmountToEnemy}</strong> damage<br>`;
-    console.log('2');
   }
 };
 
@@ -111,9 +109,31 @@ function defenceResult() {
   const damageAmountToChar = 8;
   if (charAllDefenceSelected.includes(enemyAttackZone)) {
     logsBox.innerHTML += `<strong>${enemyName.name}</strong> attcked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> but <strong>${characterName}</strong> was able to protect his <strong>${enemyAttackZone}</strong><br>`;
-    console.log('3');
   } else {
     logsBox.innerHTML += `<strong>${enemyName.name}</strong> attcked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> and deal <strong>${damageAmountToChar}</strong> damage<br>`;
-    console.log('4');
   }
 };
+
+// fight result window
+const fightResultWindow = document.querySelector('.fight__result__window');
+const fightResultWindowOverlay = document.querySelector('.overlay');
+const closeBtn = document.querySelector('.close__btn');
+const winText = document.querySelector('.win__text');
+const looseText = document.querySelector('.loose__text');
+const drawText = document.querySelector('.draw__text');
+
+const openfightResultWindow = () => {
+  fightResultWindow.classList.add('active');
+  fightResultWindowOverlay.classList.add('active');
+}
+const closefightResultWindow = () => {
+  fightResultWindow.classList.remove('active');
+  fightResultWindowOverlay.classList.remove('active');
+}
+closeBtn.addEventListener('click', () => {
+  closefightResultWindow();
+});
+fightResultWindowOverlay.addEventListener('click', () => {
+  closefightResultWindow();
+});
+

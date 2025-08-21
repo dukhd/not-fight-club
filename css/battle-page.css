@@ -198,3 +198,80 @@ legend {
   padding: 0;
   font-size: 16px;
 }
+
+.fight__result__window {
+  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  width: 800px;
+  height: 400px;
+  z-index: 1001;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  background: var(--color-light-background);
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.40);
+  transform: translate(-200%, -50%); 
+}
+.fight__result__window.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.fight__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fight__wrapper p {
+  padding-top: 130px;
+  padding-bottom: 50px;
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  display: none;
+}
+.fight__wrapper p.active{
+  display: block;
+}
+.close__btn {
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
+  width: 142px;
+  height: 76px;
+  background-image: url(../assets/png/btn.png);
+  opacity: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  color: var(--color-dark);
+  transition: 0.6s;
+  background-color: transparent;
+  cursor: pointer;
+}
+.close__btn:hover {
+  opacity: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw; 
+  height: 100vh;
+  background: var(--color-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
