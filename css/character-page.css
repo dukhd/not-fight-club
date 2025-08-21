@@ -1,31 +1,37 @@
 .char__page {
   display: flex;
-  justify-content: flex-start;
-  gap: 70px;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 100px;
 }
 .char__image__wrapper {
   position: relative;
 }
 .char__info {
-  padding-top: 20px;
+  padding-top: 60px;
 }
-output {
+.char__info output {
   text-transform: uppercase;
-  font-family: "Oxanium", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--color-dark-red);
+  font-family: "Life Savers", serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-dark);
 }
 
 .wins__count {
-  padding-top: 20px;
-  color: var(--color-wins);
-  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-top: 30px;
+  color: var(--color-green);
+  font-weight: 400;
 }
 
 .loses__count {
-  color: var(--color-loses);
-  font-weight: 600;
+  font-size: 20px;
+  padding-top: 10px;
+  text-transform: uppercase;
+  color: var(--color-red);
+  font-weight: 400;
 }
 
 .change__char__img__btn {
@@ -34,23 +40,30 @@ output {
   padding-block: 0;
   padding-inline: 0;
   object-position: center;
-  width: 250px;
-  height: 375px;
+  width: 300px;
+  height: 300px;
   cursor: pointer;
   position: relative;
+  background-color: transparent;
+  background-image: url(../assets/png/character-frame.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 311px;
+  height: 359px;
 }
-#choosen__char__img {
+img#choosen__char__img {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 28px;
 }
 .char__img__overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 250px;
-  height: 375px;
-  background: rgba(0,0,0,0.4);
+  width: 300px;
+  height: 300px;
+  background: var(--color-overlay);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -60,9 +73,6 @@ output {
   justify-content: center;
 }
 
-.change__char__img__btn:hover {
-  box-shadow: 14px 14px 5px 0 rgba(0, 0, 0, 0.25);
-}
 
 .change__char__img__btn:hover .char__img__overlay {
   opacity: 1;
@@ -75,12 +85,12 @@ output {
   left: 50%;
   opacity: 0;
   width: 800px;
-  height: 450px;
+  height: 400px;
   z-index: 1001;
   flex-shrink: 0;
   border: 1px solid #000;
-  background: var(--color-white);
-  box-shadow: 14px 14px 5px 0 rgba(0, 0, 0, 0.25);
+  background: var(--color-light-background);
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.40);
   transform: translate(-200%, -50%); 
 }
 .char__image__changing__window.active {
@@ -111,7 +121,7 @@ button.char__img__close__btn::after {
 
 button.char__img__close__btn:hover::before,
 button.char__img__close__btn:hover::after {
-  background: var(--color-dark-red);
+  background: var(--color-green);
   height: 3px;
 }
 button.char__img__close__btn:hover {
@@ -129,7 +139,7 @@ button.char__img__close__btn::after {
   left: 0;
   width: 100vw; 
   height: 100vh;
-  background: rgba(0,0,0,0.4);
+  background: var(--color-overlay);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -143,36 +153,48 @@ button.char__img__close__btn::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
+  gap: 10px;
 }
+
 .select__char {
-  width: 150px;
-  font-weight: 400;
-  font-size: 16px;
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-size: 24px;
   text-transform: uppercase;
-  padding: 10px 25px;
-  background-color: var(--color-dark);
-  color: var(--color-white);
+  text-decoration: none;
+  margin: 0;
+  width: 147px;
+  height: 78px;
+  background-image: url(../assets/png/btn.png);
+  opacity: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  color: var(--color-dark);
   transition: 0.6s;
+  background-color: transparent;
   cursor: pointer;
 }
-
 .select__char:hover {
-  background-color: var(--color-dark-red);
-  box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+  opacity: 100%;
 }
-
 .char__img__form__wrapper {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding-top: 115px;
+  padding-top: 100px;
 }
 .char__img__type__wrapper {
   cursor: pointer;
 }
 .char__img__form__wrapper input[type="radio"]:checked + img {
-  border: 5px solid var(--color-dark-red);
+  background-image: url(../assets/png/character-frame.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 147px;
+  height: 170px;
 }
 .char__img__form__wrapper input[type="radio"] {
   position: absolute;

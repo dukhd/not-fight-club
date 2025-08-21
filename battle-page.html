@@ -8,41 +8,44 @@
   <link rel="stylesheet" href="css/battle-page.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="header container">
     <div class="header__content">
-      <h2>Battle page</h2>
       <nav>
         <ul class="nav__list">
-          <li><a href="battle-page.html" class="nav__item nav__battle" title="Battle page"></a></li>
-          <li><a href="home-page.html" class="nav__item nav__home" title="Home page"></a></li>
+          <li><a href="index.html" class="nav__item nav__home" title="Home page"></a></li>
           <li><a href="character-page.html" class="nav__item nav__character" title="Character page"></a></li>
           <li><a href="settings-page.html" class="nav__item nav__settings" title="Settings page"></a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <div class="line header__line"></div>
+
   <main class="main container">
     <div class="main__content battle__page">
 
       <div class="battle__wrapper">
         <div class="character__side">
-          <div class="char__name__line name__line">
+          <div class="char__img__wrapper">
+            <img src="assets/png/frame-btl-page.png"
+            class="char__img__frame" 
+            alt="character frame"
+            width="350"
+            height="307">
+            <img src="assets/jpg/characters/1.jpg" 
+            id="choosen__char__img" 
+            alt="Character 1" 
+            width="223" 
+            height="222">
             <output for="character__name" class="char__name__output" id="character__name__output">
               Name
             </output>
           </div>
-          <img src="assets/jpg/characters/1.jpg" 
-          id="choosen__char__img" 
-          alt="Character 1" 
-          width="250" 
-          height="375">
-          <div class="character__life life__line">
+          <!-- <div class="character__life life__line">
             <span>150 / 150</span>
-          </div>
+          </div> -->
         </div>
         <div class="battle__side">
           <p>Please pick 1 Attack zone and 2 Defence zones</p>
@@ -104,17 +107,22 @@
           </form>
         </div>
         <div class="enemy__side">
-          <div class="char__name__line name__line">
+          <div class="enemy__img__wrapper">
+            <img src="assets/png/frame-btl-page.png"
+            class="enemy__img__frame" 
+            alt="enemy frame"
+            width="350"
+            height="307">
+            <img src="assets/jpg/characters/1.jpg" 
+            id="random__enemy__img" 
+            alt="Enemy 1" 
+            width="223" 
+            height="222">
             <span class="enemy__name">Subzero</span>
           </div>
-          <img src="assets/jpg/enemies/4.jpg" 
-          id="random__enemy__img" 
-          alt="Enemy 1" 
-          width="250" 
-          height="375">
-          <div class="enemy__life life__line">
+          <!-- <div class="enemy__life life__line">
             <span>150 / 150</span>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -126,7 +134,6 @@
   </main>
 
   <footer class="footer container">
-    <div class="line"></div>
     <div class="footer__content">
       <div class="year__social__links">
         <span>&copy; 2025</span>

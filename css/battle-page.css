@@ -1,12 +1,12 @@
-/* .header__content {
-  padding: 15px 0 10px;
-} */
+
+body {
+  background-image: none;
+}
 
 input[type="checkbox"],
 input[type="radio"] {
   position: relative;
   appearance: none;
-  background: #fff;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -29,7 +29,6 @@ input[type="radio"]:checked::after {
   margin: 0;
 }
 
-
 .battle__page {
   display: flex;
   flex-direction: column;
@@ -41,43 +40,61 @@ input[type="radio"]:checked::after {
   display: flex;
   justify-content: space-between;
 }
-.name__line {
-  width: 250px;
-  height: 25px;
-  /* background-color: var(--color-dark-red); */
-  position: relative;
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 35px;
-  /* border: 1px solid var(--color-dark); */
+
+.character__side,
+.enemy__side {
+  padding-top: 50px;
 }
-.name__line >* {
+.char__img__wrapper {
+  position: relative;
+  width: 350px;
+  height: 307px;
+}
+.char__img__wrapper output {
+  padding-top: 0;
   position: absolute;
+  z-index: 1;
+  bottom: 21px;
+  left: 170px;
+}
+.char__img__frame {
+  position: absolute;
+  z-index: 0;
+}
+#choosen__char__img {
+  position: absolute;
+  z-index: 1;
+  top: 22px;
+  left: 82px;
+}
+
+.enemy__img__wrapper {
+  position: relative;
+  width: 350px;
+  height: 307px;
+}
+.enemy__name {
+  padding-top: 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 21px;
+  left: 150px;
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 20px;
-  color: var(--color-dark-red);
-  z-index: 1;
-  text-align: center;
+  font-family: "Life Savers", serif;
+  font-size: 24px;
+  font-weight: 800;
 }
-.life__line {
-  width: 250px;
-  height: 25px;
-  background-color: var(--color-dark-red);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  z-index: 0;
-  border: 1px solid var(--color-dark);
-}
-.life__line span {
+.enemy__img__frame {
   position: absolute;
-  font-weight: 400;
-  color: var(--color-white);
-  z-index: 1;
-  text-align: center;
+  z-index: 0;
 }
+#random__enemy__img {
+  position: absolute;
+  z-index: 1;
+  top: 22px;
+  left: 82px;
+}
+
 .battle__side {
   display: flex;
   flex-direction: column;
@@ -86,11 +103,12 @@ input[type="radio"]:checked::after {
 
 .battle__side p {
   margin: 0;
-  padding: 60px 0 0;
+  padding: 25px 0 0;
 }
 .battle__actions__form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
 .battle__actions__wrapper {
@@ -100,7 +118,7 @@ input[type="radio"]:checked::after {
 }
 .battle__line {
   width: 1px;
-  height: 170px;
+  height: 240px;
   background-color: var(--color-dark);
 }
 .battle__actions__wrapper fieldset {
@@ -119,37 +137,47 @@ input[type="radio"]:checked::after {
   gap: 5px;
 }
 legend {
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .attack__btn {
-  font-weight: 400;
-  font-size: 16px;
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-size: 18px;
   text-transform: uppercase;
-  padding: 10px 15px;
-  margin: 0 auto;
-  width: 150px;
-  background-color: var(--color-dark);
-  color: var(--color-white);
+  text-decoration: none;
+  margin: 0;
+  width: 100px;
+  height: 53px;
+  background-image: url(../assets/png/btn.png);
+  opacity: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  color: var(--color-dark);
   transition: 0.6s;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: -30px;
 }
-
 .attack__btn:hover {
-  background-color: var(--color-dark-red);
-  box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+  opacity: 100%;
 }
 .attack__btn:disabled {
-  background-color: #b9b9b99a;
-  color: #16010171;
+  background-color: none;
+  opacity: 20%;
+  cursor: none;
 }
-
 .logs__wrapper {
   margin-top: 10px;
-  border: 2px solid var(--color-dark);
+  border: 1px solid var(--color-dark);
+  background-color: var(--color-log-box);
   max-height: 200px;
   height: 20vh;
   overflow-y: scroll;
   padding: 5px 10px;
+  font-size: 20px;
 }
 .logs__wrapper::-webkit-scrollbar {
   width: 15px;
@@ -160,7 +188,7 @@ legend {
   border-radius: 0px;
 }
 .logs__wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-dark-red);
+  background-color: var(--color-red);
   border-radius: 0px;
 }
 .logs__wrapper p {
@@ -168,27 +196,3 @@ legend {
   padding: 0;
   font-size: 16px;
 }
-
-/* 
-.footer__content {
-  padding: 7px 0 5px;
-}
-footer span {
-  font-size: 14px;
-}
-.year__social__links {
-  gap: 10px;
-}
-.github-link {
-  height: 15px;
-  width: 15px;
-}
-
-.rs-school-logo {
-  height: 19px;
-  width: 51px;
-  background-image: url(../assets/svg/rs-school-logo.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-} */

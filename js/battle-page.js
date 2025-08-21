@@ -19,10 +19,10 @@ if (characterName) {
 
 // enemy box
 const enemies = [
-  { name: "Enemy1", src: "assets/jpg/enemies/1.jpg" },
-  { name: "Enemy2", src: "assets/jpg/enemies/2.jpg" },
-  { name: "Enemy3", src: "assets/jpg/enemies/3.jpg" },
-  { name: "Enemy4", src: "assets/jpg/enemies/4.jpg" }
+  { name: "Enemy1", src: "assets/png/enemies/1.png" },
+  { name: "Enemy2", src: "assets/png/enemies/2.png" },
+  { name: "Enemy3", src: "assets/png/enemies/3.png" },
+  { name: "Enemy4", src: "assets/png/enemies/4.png" }
 ];
 
 const bodyParts = ["Head", "Neck", "Body", "Belly", "Legs"];

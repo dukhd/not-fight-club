@@ -8,14 +8,14 @@
 output {
   padding-top: 80px;
   text-transform: uppercase;
-  font-family: "Oxanium", sans-serif;
-  font-size: 20px;
+  font-family: "Life Savers", serif;
+  font-size: 24px;
   font-weight: 400;
-  color: var(--color-dark-red);
+  color: var(--color-dark);
 }
 
 .home__page h2 {
-  font-weight: 600;
+  font-weight: 800;
   font-size: 28px;
   text-transform: uppercase;
   margin: 0;
@@ -43,64 +43,10 @@ output {
   z-index: 1;
 }
 .start__fight__btn:hover {
-  background-color: var(--color-dark-red);
-  box-shadow: 5px 5px 3px 0 rgba(0, 0, 0, 0.40);
+
 
 }
 
 
-.start__fight__btn:hover + .blood {
-  position: absolute;
-  right: 5px;
-  top: 18px;
-  z-index: 0;
-  width: 31px;
-  height: 45px;
-  background-image: url(../assets/svg/blood.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: bloodMooving 1.5s infinite linear;
-}
 
-@keyframes bloodMooving {
-  0% {
-    top: 18px;
-  }
-  100% {
-    top: 480px;
-  }
-}
-/* .main {
-  background-image: url(../assets/svg/Group.svg);
-  background-size: 200%;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
 
-.footer {
-  position: fixed;
-  bottom: 0px;
-  width: 100vw;
-
-}
-.footer > * {
-  position: relative;
-  z-index: 1;
-}
-.footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url(../assets/svg/puddle-blood.svg);
-  background-size: 200%;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 0;
-}
-
-.footer.active__fight__btn::before {
-  opacity: 1;
-}
