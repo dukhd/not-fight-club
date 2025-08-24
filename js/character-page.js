@@ -19,13 +19,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const savedValue = localStorage.getItem('selectedCharacterValue');
   const savedSrc = localStorage.getItem('selectedCharacterSrc');
   const savedAlt = localStorage.getItem('selectedCharacterAlt');
-  const totalWins = localStorage.getItem('totalWins');
-  const totalLoses = localStorage.getItem('totalLoses');
+  let totalWins = parseInt(localStorage.getItem('totalWins')) || 0;
+  let totalLoses = parseInt(localStorage.getItem('totalLoses')) || 0;
   const winsOutput = document.querySelector('.wins__count');
   const losesOutput = document.querySelector('.loses__count');
 
   winsOutput.innerHTML = `Wins: ${totalWins}`;
   losesOutput.innerHTML = `Loses: ${totalLoses}`;
+
   if (savedValue && chosenCharImg) {
     const selectedRadio = charForm.querySelector(`input[name="Character"][value="${savedValue}"]`);
     if (selectedRadio) {
