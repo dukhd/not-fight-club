@@ -8,39 +8,29 @@
   <link rel="stylesheet" href="css/character-page.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="header container">
     <div class="header__content">
-      <h2>Character page</h2>
       <nav>
         <ul class="nav__list">
-          <li><a href="battle-page.html" class="nav__item nav__battle" title="Battle page"></a></li>
-          <li><a href="home-page.html" class="nav__item nav__home" title="Home page"></a></li>
+          <li><a href="index.html" class="nav__item nav__home" title="Home page"></a></li>
           <li><a href="character-page.html" class="nav__item nav__character" title="Character page"></a></li>
           <li><a href="settings-page.html" class="nav__item nav__settings" title="Settings page"></a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <div class="line header__line"></div>
   <main class="main container">
     <div class="main__content char__page">
       <div class="char__image__wrapper">
-        <!-- <div class="char__image">
-          <img src="assets/jpg/characters/1.jpg" 
-          id="choosen__char__img" 
-          alt="Caracter 1" 
-          width="250" 
-          height="375">
-        </div> -->
         <button type="submit" aria-label="Change character image" class="change__char__img__btn">
-          <img src="assets/jpg/characters/1.jpg" 
+          <img src="assets/png/characters/1.png" 
           id="choosen__char__img" 
           alt="Caracter 1" 
-          width="250" 
-          height="375">
+          width="300" 
+          height="300">
           <div class="char__img__overlay">
             <img src="assets/svg/pen.svg" alt="Change Icon" width="30" height="30">
           </div> 
@@ -63,19 +53,19 @@
               <div class="char__img__form__wrapper">
                 <label class="char__img__type__wrapper">
                   <input type="radio" checked="checked" name="Character" id="Character__1" value="1">
-                  <img src="assets/jpg/characters/1.jpg" alt="Character 1" width="147" height="220">
+                  <img src="assets/png/characters/1.png" alt="Character 1" width="142" height="142">
                 </label>
                 <label class="char__img__type__wrapper">
                   <input type="radio" name="Character" id="Character__2" value="2">
-                  <img src="assets/jpg/characters/2.jpg" alt="Character 2" width="147" height="220">
+                  <img src="assets/png/characters/2.png" alt="Character 2" width="142" height="142">
                 </label>
                 <label class="char__img__type__wrapper">
                   <input type="radio" name="Character" id="Character__3" value="3">
-                  <img src="assets/jpg/characters/3.jpg" alt="Character 3" width="147" height="220">
+                  <img src="assets/png/characters/3.png" alt="Character 3" width="142" height="142">
                 </label>
                 <label class="char__img__type__wrapper">
                   <input type="radio" name="Character" id="Character__4" value="4">
-                  <img src="assets/jpg/characters/4.jpg" alt="Character 4" width="147" height="220">
+                  <img src="assets/png/characters/4.png" alt="Character 4" width="142" height="142">
                 </label>
               </div>
               <button type="submit" aria-label="Select character" class="select__char">Select</button>
@@ -83,11 +73,18 @@
           </div>
       </div>
     </div>
-
+    <div class="delete__char__btn__wrapper">
+      <button type="submit" aria-label="Delete account" class="delete__char__btn__question">Delete Account</button>
+    </div>
+    <div class="delete__char__btn__alert">
+      <h6>Are you sure you want to delete your account?</h6>
+      <p>Your name and progress will not be saved. <br>Once deleted, your account cannot be restored.</p>
+      <button type="submit" aria-label="Delete account" class="delete__char__btn">Delete</button>
+      <button type="submit" aria-label="Cancel" class="cancel__delete__char__btn">Cancel</button>
+    </div>
   </main>
 
   <footer class="footer container">
-    <div class="line"></div>
     <div class="footer__content">
       <div class="year__social__links">
         <span>&copy; 2025</span>

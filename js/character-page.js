@@ -10,12 +10,22 @@ const changeCharCloseBtn = document.querySelector('.char__img__close__btn');
 const changeCharOverlay = document.querySelector('.overlay');
 const charForm = document.querySelector('.char__img__form');
 const chosenCharImg = document.getElementById('choosen__char__img');
-
+const deleteCharBtnQuestion = document.querySelector('.delete__char__btn__question');
+const deleteCharWindow = document.querySelector('.delete__char__btn__alert');
+const deleteCharBtn = document.querySelector('.delete__char__btn');
+const cancelDeleteCharBtn = document.querySelector('.cancel__delete__char__btn');
 
 window.addEventListener('DOMContentLoaded', () => {
   const savedValue = localStorage.getItem('selectedCharacterValue');
   const savedSrc = localStorage.getItem('selectedCharacterSrc');
   const savedAlt = localStorage.getItem('selectedCharacterAlt');
+  let totalWins = parseInt(localStorage.getItem('totalWins')) || 0;
+  let totalLoses = parseInt(localStorage.getItem('totalLoses')) || 0;
+  const winsOutput = document.querySelector('.wins__count');
+  const losesOutput = document.querySelector('.loses__count');
+
+  winsOutput.innerHTML = `Wins: ${totalWins}`;
+  losesOutput.innerHTML = `Loses: ${totalLoses}`;
 
   if (savedValue && chosenCharImg) {
     const selectedRadio = charForm.querySelector(`input[name="Character"][value="${savedValue}"]`);
@@ -27,7 +37,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-
 
 changeCharImgBtn.addEventListener('click', () => {
   changeCharWindow.classList.add('active');
@@ -44,6 +53,7 @@ changeCharCloseBtn.addEventListener('click', () => {
 
 changeCharOverlay.addEventListener('click', () => {
   closeCharImgWindow();
+  closeDeleteCharWindow();
 });
 
 charForm.addEventListener('submit', (e) => {
@@ -61,4 +71,23 @@ charForm.addEventListener('submit', (e) => {
 
     closeCharImgWindow();
   }
+});
+
+
+deleteCharBtnQuestion.addEventListener('click', () => {
+  deleteCharWindow.classList.add('active');
+  changeCharOverlay.classList.add('active');
+});
+const closeDeleteCharWindow = () => {
+  deleteCharWindow.classList.remove('active');
+  changeCharOverlay.classList.remove('active');
+};
+cancelDeleteCharBtn.addEventListener('click', () => {
+  closeDeleteCharWindow();
+});
+deleteCharBtn.addEventListener('click', () => {
+  closeDeleteCharWindow();
+  localStorage.clear();
+  // window.location.href = '/index.html';
+  window.location.href = '/not-fight-club/index.html';
 });
