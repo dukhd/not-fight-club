@@ -118,6 +118,7 @@ function closeEnemyInfoWindow() {
   enemyInfoWindow.classList.remove('active');
   fightResultWindowOverlay.classList.remove('active');
 };
+
 function getRandomItem(array) {
   const index = Math.floor(Math.random() * array.length);
   return array[index];
@@ -142,10 +143,24 @@ if (enemyName) {
   chosenEnemyImg.src = enemyName.src;
 }
 
-
 function generateEnemyMove() {
-  enemyAttackZone = getRandomItem(bodyParts);
-  enemyDefenceZones = getRandomItems(bodyParts, 2);
+  if (enemyName.name === 'Thornel') {
+    enemyAttackZone = getRandomItem(bodyParts);
+    enemyDefenceZones = getRandomItems(bodyParts, 3);
+  }
+  if (enemyName.name === 'Veyra') {
+    enemyAttackZone = getRandomItems(bodyParts, 2);
+    enemyDefenceZones = getRandomItem(bodyParts);
+  }
+  if (enemyName.name === 'Koril') {
+    enemyAttackZone = getRandomItems(bodyParts, 2);
+    enemyDefenceZones = getRandomItems(bodyParts, 2);
+  }
+  if (enemyName.name === 'Sylth') {
+    enemyAttackZone = getRandomItem(bodyParts);
+    enemyDefenceZones = getRandomItems(bodyParts, 2);
+  }
+  
 }
 // enemy box end
 
@@ -212,14 +227,18 @@ function defenceResult() {
     .map(d => d.value);
 
   const damageAmountToChar = 10;
-  if (charAllDefenceSelected.includes(enemyAttackZone)) {
-    logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> to <span class="log">${enemyAttackZone}</span> but <span class="char_name log">${characterName}</span> was able to protect his <span class="log">${enemyAttackZone}</span><br>`;
-  } else {
-    logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> to <span class="log">${enemyAttackZone}</span> and deal <span class="log">${damageAmountToChar}</span> damage<br>`;
-    charHealth -= damageAmountToChar;
-    charHealthEl.innerHTML = `${charHealth}/140`;
-    localStorage.setItem("charHealth", charHealth);
-  }
+  const attackZones = Array.isArray(enemyAttackZone) ? enemyAttackZone : [enemyAttackZone];
+
+  attackZones.forEach(zone => {
+    if (charAllDefenceSelected.includes(zone)) {
+      logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> at <span class="log">${zone}</span> but <span class="char_name log">${characterName}</span> blocked it<br>`;
+    } else {
+      logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> at <span class="log">${zone}</span> and dealt <span class="log">${damageAmountToChar}</span> damage<br>`;
+      charHealth -= damageAmountToChar;
+      charHealthEl.innerHTML = `${charHealth}/140`;
+      localStorage.setItem("charHealth", charHealth);
+    }
+  });
 };
 
 // fight result window
