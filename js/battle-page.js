@@ -19,10 +19,10 @@ if (characterName) {
 
 // enemy box
 const enemies = [
-  { name: "Enemy1", src: "assets/png/enemies/1.png" },
-  { name: "Enemy2", src: "assets/png/enemies/2.png" },
-  { name: "Enemy3", src: "assets/png/enemies/3.png" },
-  { name: "Enemy4", src: "assets/png/enemies/4.png" }
+  { name: "Thornel", src: "assets/png/enemies/1.png" },
+  { name: "Veyra", src: "assets/png/enemies/2.png" },
+  { name: "Koril", src: "assets/png/enemies/3.png" },
+  { name: "Sylth", src: "assets/png/enemies/4.png" }
 ];
 
 const bodyParts = ["Head", "Neck", "Body", "Belly", "Legs"];
@@ -124,9 +124,9 @@ function attackResult() {
   const charAttackSelected = [...attackRadios].find(a => a.checked)?.value;
   const damageAmountToEnemy = 10;
   if (enemyDefenceZones.includes(charAttackSelected)) {
-    logsBox.innerHTML += `<strong>${characterName}</strong> attacked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> but <strong>${enemyName.name}</strong> was able to protect his <strong>${charAttackSelected}</strong><br>`;
+    logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span> but <span class="enemy_name log">${enemyName.name}</span> was able to protect his <span class="log">${charAttackSelected}</span><br>`;
   } else {
-    logsBox.innerHTML += `<strong>${characterName}</strong> attacked <strong>${enemyName.name}</strong> to <strong>${charAttackSelected}</strong> and deal <strong>${damageAmountToEnemy}</strong> damage<br>`;
+    logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span> and deal <span class="log">${damageAmountToEnemy}</span> damage<br>`;
     enemyHealth -= damageAmountToEnemy;
     enemyHealthEl.innerHTML = `${enemyHealth}/140`;
     localStorage.setItem("enemyHealth", enemyHealth);
@@ -140,9 +140,9 @@ function defenceResult() {
 
   const damageAmountToChar = 10;
   if (charAllDefenceSelected.includes(enemyAttackZone)) {
-    logsBox.innerHTML += `<strong>${enemyName.name}</strong> attacked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> but <strong>${characterName}</strong> was able to protect his <strong>${enemyAttackZone}</strong><br>`;
+    logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> to <span class="log">${enemyAttackZone}</span> but <span class="char_name log">${characterName}</span> was able to protect his <span class="log">${enemyAttackZone}</span><br>`;
   } else {
-    logsBox.innerHTML += `<strong>${enemyName.name}</strong> attacked <strong>${characterName}</strong> to <strong>${enemyAttackZone}</strong> and deal <strong>${damageAmountToChar}</strong> damage<br>`;
+    logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> to <span class="log">${enemyAttackZone}</span> and deal <span class="log">${damageAmountToChar}</span> damage<br>`;
     charHealth -= damageAmountToChar;
     charHealthEl.innerHTML = `${charHealth}/140`;
     localStorage.setItem("charHealth", charHealth);

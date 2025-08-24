@@ -31,7 +31,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
 changeCharImgBtn.addEventListener('click', () => {
   changeCharWindow.classList.add('active');
   changeCharOverlay.classList.add('active');
