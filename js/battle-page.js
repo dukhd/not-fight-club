@@ -43,6 +43,10 @@ const healthImages = [
 
 attackBtn.disabled = true;
 
+// wins/loses count
+let totalWins = 0;
+let totalLoses = 0;
+
 // check saved fight start ----------------------
 if (savedLogs) {
   logsBox.innerHTML = savedLogs;
@@ -61,6 +65,15 @@ if (savedCharHealth && savedEnemyHealth) {
   charHealthImg.src = localStorage.getItem("charHealthImg");
   enemyHealthImg.src = localStorage.getItem("enemyHealthImg");
 }
+const savedTotalWins = localStorage.getItem('totalWins');
+const savedTotalLoses = localStorage.getItem('totalLoses');
+if (savedTotalWins) {
+  totalWins = parseInt(savedTotalWins, 10);
+}
+if (savedTotalLoses) {
+  totalLoses = parseInt(savedTotalLoses, 10);
+}
+
 // check saved fight end ----------------------
 
 if (chosenCharImg) {
@@ -193,7 +206,7 @@ const fightResultWindow = document.querySelector('.fight__result__window');
 const fightResultWindowOverlay = document.querySelector('.overlay');
 const closeBtn = document.querySelector('.close__btn');
 const winText = document.querySelector('.win__text');
-const looseText = document.querySelector('.loose__text');
+const loseText = document.querySelector('.lose__text');
 const drawText = document.querySelector('.draw__text');
 
 const openfightResultWindow = () => {
@@ -218,15 +231,26 @@ function checkFightEnd() {
   if (charHealth <= 0 && enemyHealth <= 0) {
     openfightResultWindow();
     drawText.classList.add('active');
+    loseText.classList.remove('active');
+    winText.classList.remove('active');
   } else if (charHealth <= 0) {
     openfightResultWindow();
-    looseText.classList.add('active');
+    loseText.classList.add('active');
+    drawText.classList.remove('active');
+    winText.classList.remove('active');
+    totalLoses += 1;
   } else if (enemyHealth <= 0) {
     openfightResultWindow();
     winText.classList.add('active');
+    loseText.classList.remove('active');
+    drawText.classList.remove('active');
+    totalWins += 1;
   } else {
     return;
   }
+  localStorage.setItem("totalWins", totalWins);
+  localStorage.setItem("totalLoses", totalLoses);
+  resetFight()
 }
 
 function resetFight() {
