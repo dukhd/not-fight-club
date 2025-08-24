@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not A Fight Club</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header container hiden">
+    <div class="header__content">
+      <nav>
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__item nav__home" title="Home page"></a></li>
+          <li><a href="character-page.html" class="nav__item nav__character" title="Character page"></a></li>
+          <li><a href="settings-page.html" class="nav__item nav__settings" title="Settings page"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main container hiden">
+    <div class="main__content home__page">
+      <output for="character__name" class="char__name__output" id="character__name__output">
+        name
+      </output>
+      <h2>Welcome to the Not Fight Club!</h2>
+      <div class="start__fight__btn__wrapper">
+        <a href="battle-page.html" class="start__fight__btn"></a>
+        <span class="start__fight__btn__text">Start fight!</span>
+      </div>
+    </div>
+  </main>
+<!-- main_register start-->
+  <main class="main_register container">
+    <div class="main__content create__char__page">
+      <h1>Welcome to the Not Fight Club!</h1>
+      <p class="create__char__text">Please, create your character.</p>
+      <form action="home-page.html" class="char__name__form">
+        <fieldset class="char__name__fieldset">
+          <label for="character__name">Character name</label>
+          <input type="text" id="character__name" name="Character name" class="char__name"
+            required
+            minlength="3"
+            maxlength="15"
+            pattern="^[a-zA-Zа-яА-ЯЁё ]{3,15}$"
+            title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only">
+            <div class="invalid__message"></div>
+        </fieldset>
+        <button type="submit" aria-label="Create character" class="create__char__btn">Create</button>
+      </form>
+    </div>
+  </main>
+<!-- main_register end-->
+  <footer class="footer container">
+    <div class="line"></div>
+    <div class="footer__content">
+      <div class="year__social__links">
+        <span>&copy; 2025</span>
+        <a href="https://github.com/dukhd" class="github-link" title="GitHub link"></a>
+      </div>
+      <a href="https://rs.school/courses/javascript-ru" class="rs-school-logo" title="RS School link"></a> 
+    </div>
+    
+  </footer>
+  <script src="js/home-page.js"></script>
+</body>
+</html>
