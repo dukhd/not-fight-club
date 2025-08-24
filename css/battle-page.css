@@ -244,6 +244,9 @@ legend {
 .log {
   font-weight: 700;
 }
+.crit {
+  color: var(--color-red);
+}
 .enemy_name {
   font-weight: 800;
   color: var(--color-red);

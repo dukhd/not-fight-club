@@ -53,6 +53,9 @@ if (savedLogs) {
 };
 if (savedEnemy) {
   enemyName = JSON.parse(savedEnemy);
+} else {
+  enemyName = getRandomItem(enemies);
+  localStorage.setItem("enemy", JSON.stringify(enemyName));
 }
 const savedCharHealth = localStorage.getItem("charHealth");
 const savedEnemyHealth = localStorage.getItem("enemyHealth");
@@ -100,6 +103,7 @@ const enemyBox = document.querySelector('.enemy__side');
 const enemyBoxOverlay = document.querySelector('.enemy__side__overlay');
 const enemyInfoWindow = document.querySelector('.enemies__info__window');
 const enemyInforWindowCloseBtn = document.querySelector('.enemies__info__window__close__btn');
+
 enemyBox.addEventListener('mousemove', () => {
   enemyBoxOverlay.classList.add('active');
 });
@@ -158,11 +162,23 @@ function generateEnemyMove() {
   }
   if (enemyName.name === 'Sylth') {
     enemyAttackZone = getRandomItem(bodyParts);
-    enemyDefenceZones = getRandomItems(bodyParts, 2);
+    enemyDefenceZones = getRandomItem(bodyParts);
   }
   
 }
+
+// enemy crit
+let enemyCritsUsed = 0;
+const maxEnemyCrits = 2;
+
+const enemiesCritData = {
+  Thornel: { critChance: 0.01, critMultiplier: 2 },
+  Veyra:   { critChance: 0.10, critMultiplier: 1.5 },
+  Koril:   { critChance: 0.10, critMultiplier: 1.5 },
+  Sylth:   { critChance: 0.15, critMultiplier: 1.5 }
+};
 // enemy box end
+
 
 
 function getHealthImage(currentHealth) {
@@ -173,7 +189,6 @@ function getHealthImage(currentHealth) {
   }
   return healthImages[0].src;
 }
-
 
 
 function makeAttack() {
@@ -207,18 +222,41 @@ attackBtn.addEventListener('click', (e) => {
 });
 
 
+let charCritsUsed = 0;
+const maxCharCrits = 2;
+const charCritChance = 0.20;
+const charCritMultiplier = 1.5;
 
 function attackResult() {
   const charAttackSelected = [...attackRadios].find(a => a.checked)?.value;
-  const damageAmountToEnemy = 10;
-  if (enemyDefenceZones.includes(charAttackSelected)) {
-    logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span> but <span class="enemy_name log">${enemyName.name}</span> was able to protect his <span class="log">${charAttackSelected}</span><br>`;
-  } else {
-    logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span> and deal <span class="log">${damageAmountToEnemy}</span> damage<br>`;
-    enemyHealth -= damageAmountToEnemy;
-    enemyHealthEl.innerHTML = `${enemyHealth}/140`;
-    localStorage.setItem("enemyHealth", enemyHealth);
+  const damageAmountToEnemyBase = 10;
+
+  let damageAmountToEnemy = damageAmountToEnemyBase;
+  let isCharCrit = false;
+  if (Math.random() < charCritChance && charCritsUsed < maxCharCrits) {
+    isCharCrit = true;
+    charCritsUsed++;
+    damageAmountToEnemy = Math.floor(damageAmountToEnemyBase * charCritMultiplier);
   }
+
+  if (enemyDefenceZones.includes(charAttackSelected)) {
+    if (isCharCrit) {
+      logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span>, <span class="enemy_name log">${enemyName.name}</span> tried to block but <span class="char_name log">${characterName}</span> was very lucky and crit his opponent for <span class="log crit">${damageAmountToEnemy} damage!</span><br>`;
+      enemyHealth -= damageAmountToEnemy;
+    } else {
+      logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span>, but <span class="enemy_name log">${enemyName.name}</span> blocked it.<br>`;
+    }
+  } else {
+    if (isCharCrit) {
+      logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span> and dealt <span class="log crit">${damageAmountToEnemy} critical damage!</span><br>`;
+    } else {
+      logsBox.innerHTML += `<span class="char_name log">${characterName}</span> attacked <span class="enemy_name log">${enemyName.name}</span> to <span class="log">${charAttackSelected}</span> and dealt <span class="log">${damageAmountToEnemy} damage.</span><br>`;
+    }
+    enemyHealth -= damageAmountToEnemy;
+  }
+
+  enemyHealthEl.innerHTML = `${enemyHealth}/140`;
+  localStorage.setItem("enemyHealth", enemyHealth);
 };
 
 function defenceResult() {
@@ -226,20 +264,38 @@ function defenceResult() {
     .filter(d => d.checked)
     .map(d => d.value);
 
-  const damageAmountToChar = 10;
+  const damageAmountToCharBase = 10;
+  let isCrit = false;
+
+  const critData = enemiesCritData[enemyName.name];
+  if (Math.random() < critData.critChance && enemyCritsUsed < maxEnemyCrits) {
+    isCrit = true;
+    enemyCritsUsed++;
+  }
+
   const attackZones = Array.isArray(enemyAttackZone) ? enemyAttackZone : [enemyAttackZone];
 
   attackZones.forEach(zone => {
+    let damageAmountToChar = damageAmountToCharBase;
+
+    if (isCrit) damageAmountToChar = Math.floor(damageAmountToChar * critData.critMultiplier);
+
     if (charAllDefenceSelected.includes(zone)) {
-      logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> at <span class="log">${zone}</span> but <span class="char_name log">${characterName}</span> blocked it<br>`;
+      if (isCrit) {
+        logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> at <span class="log">${zone}</span>, <span class="char_name log">${characterName}</span> tried to block but <span class="enemy_name log">${enemyName.name}</span> was very lucky and crit his opponent for <span class="log crit">${damageAmountToChar} damage!</span><br>`;
+        charHealth -= damageAmountToChar;
+      } else {
+        logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> at <span class="log">${zone}</span> but <span class="char_name log">${characterName}</span> blocked it.<br>`;
+      }
     } else {
-      logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> at <span class="log">${zone}</span> and dealt <span class="log">${damageAmountToChar}</span> damage<br>`;
+      logsBox.innerHTML += `<span class="enemy_name log">${enemyName.name}</span> attacked <span class="char_name log">${characterName}</span> at <span class="log">${zone}</span> and dealt ${isCrit ? `<span class="log crit">${damageAmountToChar} critical damage!</span>` : `<span class="log">${damageAmountToChar} damage.</span>`}<br>`;
       charHealth -= damageAmountToChar;
-      charHealthEl.innerHTML = `${charHealth}/140`;
-      localStorage.setItem("charHealth", charHealth);
     }
+
+    charHealthEl.innerHTML = `${charHealth}/140`;
+    localStorage.setItem("charHealth", charHealth);
   });
-};
+}
 
 // fight result window
 const fightResultWindow = document.querySelector('.fight__result__window');
