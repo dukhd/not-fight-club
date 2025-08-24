@@ -96,7 +96,28 @@ if (characterName) {
 
 // enemy box
 
+const enemyBox = document.querySelector('.enemy__side');
+const enemyBoxOverlay = document.querySelector('.enemy__side__overlay');
+const enemyInfoWindow = document.querySelector('.enemies__info__window');
+const enemyInforWindowCloseBtn = document.querySelector('.enemies__info__window__close__btn');
+enemyBox.addEventListener('mousemove', () => {
+  enemyBoxOverlay.classList.add('active');
+});
+enemyBox.addEventListener('mouseleave', () => {
+  enemyBoxOverlay.classList.remove('active');
+});
+enemyBox.addEventListener('click', () => {
+  enemyInfoWindow.classList.add('active');
+  fightResultWindowOverlay.classList.add('active');
+});
+enemyInforWindowCloseBtn.addEventListener('click', () => {
+  closeEnemyInfoWindow();
+});
 
+function closeEnemyInfoWindow() {
+  enemyInfoWindow.classList.remove('active');
+  fightResultWindowOverlay.classList.remove('active');
+};
 function getRandomItem(array) {
   const index = Math.floor(Math.random() * array.length);
   return array[index];
@@ -219,11 +240,10 @@ const closefightResultWindow = () => {
 }
 closeBtn.addEventListener('click', () => {
   closefightResultWindow();
-  resetFight();
 });
 fightResultWindowOverlay.addEventListener('click', () => {
   closefightResultWindow();
-  resetFight();
+  closeEnemyInfoWindow()
 });
 
 // check fight result
