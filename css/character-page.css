@@ -1,0 +1,293 @@
+.char__page {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 100px;
+}
+.char__image__wrapper {
+  position: relative;
+}
+.char__info {
+  padding-top: 60px;
+}
+.char__info output {
+  text-transform: uppercase;
+  font-family: "Life Savers", serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.wins__count {
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-top: 30px;
+  color: var(--color-green);
+  font-weight: 400;
+}
+
+.loses__count {
+  font-size: 20px;
+  padding-top: 10px;
+  text-transform: uppercase;
+  color: var(--color-red);
+  font-weight: 400;
+}
+
+.change__char__img__btn {
+  border: none;
+  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  object-position: center;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  background-image: url(../assets/png/character-frame.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 311px;
+  height: 359px;
+}
+img#choosen__char__img {
+  position: absolute;
+  top: 0;
+  left: 28px;
+}
+.char__img__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: var(--color-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.change__char__img__btn:hover .char__img__overlay {
+  opacity: 1;
+}
+
+.char__image__changing__window {
+  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  width: 800px;
+  height: 400px;
+  z-index: 1001;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  background: var(--color-light-background);
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.40);
+  transform: translate(-200%, -50%); 
+}
+.char__image__changing__window.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+button.char__img__close__btn {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  top: 29px;
+  right: 29px;
+}
+button.char__img__close__btn::before,
+button.char__img__close__btn::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 1px;
+  background: #030303;
+  transform-origin: center;
+  transition: transform 0.6s ease;
+}
+
+button.char__img__close__btn:hover::before,
+button.char__img__close__btn:hover::after {
+  background: var(--color-green);
+  height: 3px;
+}
+button.char__img__close__btn:hover {
+  box-shadow: none;
+}
+button.char__img__close__btn::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+button.char__img__close__btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.overlay {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw; 
+  height: 100vh;
+  background: var(--color-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.char__img__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.select__char {
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
+  width: 147px;
+  height: 78px;
+  background-image: url(../assets/png/btn.png);
+  opacity: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  color: var(--color-dark);
+  transition: 0.6s;
+  background-color: transparent;
+  cursor: pointer;
+}
+.select__char:hover {
+  opacity: 100%;
+}
+.char__img__form__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 100px;
+}
+.char__img__type__wrapper {
+  cursor: pointer;
+}
+.char__img__form__wrapper input[type="radio"]:checked + img {
+  background-image: url(../assets/png/character-frame.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 147px;
+  height: 170px;
+}
+.char__img__form__wrapper input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.delete__char__btn__wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-left: 380px;
+}
+.delete__char__btn__question {
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
+  width: 142px;
+  height: 76px;
+  background-image: url(../assets/png/btn.png);
+  opacity: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  color: var(--color-dark);
+  transition: 0.6s;
+  background-color: transparent;
+  cursor: pointer;
+}
+.delete__char__btn__question:hover {
+  opacity: 100%;
+}
+
+.delete__char__btn,
+.cancel__delete__char__btn {
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
+  width: 142px;
+  height: 76px;
+  background-image: url(../assets/png/btn.png);
+  opacity: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  color: var(--color-dark);
+  transition: 0.6s;
+  background-color: transparent;
+  cursor: pointer;
+}
+.delete__char__btn:hover,
+.cancel__delete__char__btn:hover {
+  opacity: 100%;
+}
+
+.delete__char__btn__alert {
+  padding: 60px 0 0 120px;
+  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  width: 800px;
+  height: 400px;
+  z-index: 1001;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  background: var(--color-light-background);
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.40);
+  transform: translate(-200%, -50%); 
+}
+.delete__char__btn__alert.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+
+
+h6 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.delete__char__btn__alert p {
+  padding: 30px 0;
+  font-size: 24px;
+  font-weight: 400;
+}
